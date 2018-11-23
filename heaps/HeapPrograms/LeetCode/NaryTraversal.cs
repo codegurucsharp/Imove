@@ -119,5 +119,25 @@ namespace LeetCode
 
             return max + 1;
         }
+
+        Queue<Node> q = new Queue<Node>();
+        public void LevelOrderTraversal(Node root)
+        {
+            if (root == null) return;
+
+            Console.WriteLine(root.val);
+            
+            if(root.children!=null)
+            {
+                foreach (var item in root.children)
+                {
+                    q.Enqueue(item);
+                }
+            }
+            if (q.Count > 0)
+            {
+                LevelOrderTraversal(q.Dequeue());
+            }
+        }
     }
 }

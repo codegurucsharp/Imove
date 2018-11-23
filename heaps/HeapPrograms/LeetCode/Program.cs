@@ -17,12 +17,101 @@ namespace LeetCode
             // CallPrintStack();
             // CallStackUsingQueue();
             // CallSelfDividingNumber();
+            // CallNaryTraversal();
+            // CallLevelOrderTraversal();
+            // CallValidateParenthesis();
+            // CallStringFunctions();
 
-            CallNaryTraversal();
+            CallMirrorTree();
+            // CallBitAlgos();
 
             Console.ReadLine();
         }
 
+        private static void CallMirrorTree()
+        {
+            TreeNode node = new TreeNode { Data = 1 };
+            node.LeftNode = new TreeNode { Data = 2 };
+            node.RightNode = new TreeNode { Data = 3 };
+            node.LeftNode.LeftNode = new TreeNode { Data = 4 };
+            node.LeftNode.RightNode = new TreeNode { Data = 5 };
+            node.RightNode.LeftNode = new TreeNode { Data = 6 };
+            node.RightNode.RightNode = new TreeNode { Data = 7 };
+            node.LeftNode.LeftNode.LeftNode = new TreeNode { Data = 8 };
+            node.LeftNode.LeftNode.RightNode = new TreeNode { Data = 9 };
+            node.LeftNode.RightNode.LeftNode = new TreeNode { Data = 10 };
+            node.LeftNode.RightNode.RightNode = new TreeNode { Data = 11 };
+
+            TreePrograms treePrograms = new TreePrograms();
+            var mirrorTree = treePrograms.MirrorTree(node);
+        }
+        private static void CallBitAlgos()
+        {
+            BitAlgos algos = new BitAlgos();
+
+            Console.WriteLine("128 is power of 2" + algos.isPowerOf2(128));
+            Console.WriteLine("256 is power of 2" + algos.isPowerOf2(256));
+            Console.WriteLine("1023 is power of 2" + algos.isPowerOf2(1023));
+
+
+            Console.WriteLine("Number of Bits 31" + algos.CountNumberOfBitsSetApp1(31));
+            Console.WriteLine("Number of Bits 255" + algos.CountNumberOfBitsSetApp1(255));
+            Console.WriteLine("Number of Bits 1023" + algos.CountNumberOfBitsSetApp1(1023));
+
+            Console.WriteLine("Number of Bits 31" + algos.CountNumberOfBitsSetApp2(31));
+            Console.WriteLine("Number of Bits 255" + algos.CountNumberOfBitsSetApp2(255));
+            Console.WriteLine("Number of Bits 1023" + algos.CountNumberOfBitsSetApp2(1023));
+
+
+            Console.WriteLine("KthBitSetOrnot" + algos.KthBitSetOrnot(32, 2));
+
+
+            Console.WriteLine("Next power of 2 for 6 " + algos.getNextPowerOf2NumberLogApproach(6));
+            Console.WriteLine("Next power of 2 for 9 " + algos.getNextPowerOf2NumberLogApproach(9));
+            Console.WriteLine("Next power of 2 for 17" + algos.getNextPowerOf2Number(17));
+            Console.WriteLine("Next power of 2 for 32" + algos.getNextPowerOf2NumberLogApproach(32));
+
+        }
+
+        private static void CallStringFunctions()
+        {
+            string s = "Hello";
+
+            StringAlgos str = new StringAlgos();
+            var test = str.ToLowerCase(s);
+        }
+
+        private static void CallValidateParenthesis()
+        {
+            ValidateParenthesis parenthesis = new ValidateParenthesis();
+
+            Console.WriteLine("(((((())))))" + parenthesis.IsValid("(((((())))))"));
+            Console.WriteLine("()()()()" + parenthesis.IsValid("()()()()"));
+            Console.WriteLine("(((((((()" + parenthesis.IsValid("(((((((()"));
+            Console.WriteLine("((()(())))" + parenthesis.IsValid("((()(())))"));
+            Console.WriteLine("){ " + parenthesis.IsValid("){"));
+            Console.WriteLine("() " + parenthesis.IsValid("()"));
+            Console.WriteLine("(] " + parenthesis.IsValid("(]"));
+        }
+
+        private static void CallLevelOrderTraversal()
+        {
+            TreeNode node = new TreeNode { Data = 1 };
+            node.LeftNode = new TreeNode { Data = 2 };
+            node.RightNode = new TreeNode { Data = 3 };
+            node.LeftNode.LeftNode = new TreeNode { Data = 4 };
+            node.LeftNode.RightNode = new TreeNode { Data = 5 };
+            node.RightNode.LeftNode = new TreeNode { Data = 6 };
+            node.RightNode.RightNode = new TreeNode { Data = 7 };
+            node.LeftNode.LeftNode.LeftNode = new TreeNode { Data = 8 };
+            node.LeftNode.LeftNode.RightNode = new TreeNode { Data = 9 };
+            node.LeftNode.RightNode.LeftNode = new TreeNode { Data = 10 };
+            node.LeftNode.RightNode.RightNode = new TreeNode { Data = 11 };
+
+            TreeTraversal treeTraversal = new TreeTraversal();
+            treeTraversal.LevelOrderTraversal(node);
+
+        }
         private static void CallNaryTraversal()
         {
             NaryTraversal traversal = new NaryTraversal();
@@ -43,6 +132,8 @@ namespace LeetCode
 
             var maxD = traversal.MaxDepth(root);
             var maxD2 = traversal.MaxDepth2(root);
+
+            traversal.LevelOrderTraversal(root);
         }
 
         private static void CallSelfDividingNumber()
