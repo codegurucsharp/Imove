@@ -12,7 +12,7 @@ namespace LeetCode
             // CallIsLucky();
             // CallIsPrime();
             // CallCountPrime();
-            // CallReverserString();
+            CallReverserString();
             // CallSingleNonDuplicate();
             // CallPrintStack();
             // CallStackUsingQueue();
@@ -21,14 +21,72 @@ namespace LeetCode
             // CallLevelOrderTraversal();
             // CallValidateParenthesis();
             // CallStringFunctions();
-
-            CallMirrorTree();
+            //CallArrayAlgos();
+            //CallArrayAlgos2();
+            // CallTreeOperations();
             // CallBitAlgos();
+
+            CallDPAlgos();
 
             Console.ReadLine();
         }
 
-        private static void CallMirrorTree()
+        private static void CallDPAlgos()
+        {
+            DPAlgos algos = new DPAlgos();
+            int num = 14;
+            Console.WriteLine($"Number {num} is ugly: {algos.IsUgly(num)}");
+
+            int k = 20;
+            Console.WriteLine($"Kth Ugly Number where k={k} is {algos.kthUglyNbr(k)}");
+
+            int ksuperUgly = 12;
+            Console.WriteLine($"Kth Super Ugly Number where k={ksuperUgly} is {algos.SuperUgly(ksuperUgly, new int[] { 2, 7, 13, 19 })}");
+        }
+
+        private static void CallArrayAlgos2()
+        {
+
+            ArrayAlgos2 algos = new ArrayAlgos2();
+            //Console.WriteLine(algos.NextGreaterElementPart1(new int []{ 4, 1, 2 }, new int[] { 1, 3, 4, 2 }));
+            Console.WriteLine(algos.NextGreaterElementPart1(new int[] { 1, 3, 5, 2, 4 }, new int[] { 6, 5, 4, 3, 2, 1, 7 }));
+            Console.WriteLine(algos.NextGreaterElement(7686553));
+            Console.WriteLine(algos.NextGreaterElement(1234));
+            Console.WriteLine(algos.NextGreaterElement(12));
+
+            Console.WriteLine($"Third Max for {algos.ThirdMaxNumber(new int[] { 1, 2})}");
+
+        }
+        private static void CallArrayAlgos()
+        {
+            ArrayAlgos algos = new ArrayAlgos();
+            // int[] arr = new int[] { 1, 2, 3, 6, 12, 90, 6, 5 };
+            int[] arr = new int[] { 3, 2, 4 };
+            algos.FindAPairWhoseSumIsX(arr, 6);
+            algos.FindAPairWhoseSumIsXWithoutSorting(arr, 6);
+            var threeSum = algos.ThreeSum(new int[] { 0, 0, 0, 0 });
+            threeSum = algos.ThreeSum(new int[] { -1, 0, 1, 2, -1, -4 });
+
+            algos.FindMajorityElementMoore(new int[] { 3, 2, 3 });
+            algos.FindMajorityElementMoore(new int[] { 2, 2, 1, 1, 1, 2, 2 });
+            //algos.FindMajorityElement(new int[] { 2, 2, 1, 1, 1, 2, 2 });
+
+            algos.MaxSumSubArray(new int[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 });
+            algos.MaxSumSubArray(new int[] { 1, 2 });
+
+            var consecutiveOnes = algos.FindMaxConsecutiveOnes(new int[] { 1, 1, 0, 1, 1, 1 });
+            var noOfSubarrays = algos.SubarraySumFromLeetCodeSols(new int[] { 8, 5, -2, 3, 4, -5, 7, -2, -4, -3, 2 }, 10);
+            noOfSubarrays = algos.SubarraySumGeneric(new int[] { 1, -1, 1 }, 0);
+
+            noOfSubarrays = algos.SubarraySumGeneric(new int[] { 1, 2, 1, 2, 1 }, 3);
+
+            algos.FindLargestSubArrary(new int[] { 0, 1, 1, 0, 1, 0, 1 });
+
+            var maxProfit = algos.MaxProfit(new int[] { 7, 1, 5, 3, 6, 4 });
+            maxProfit = algos.MaxProfit(new int[] { 7, 6, 4, 3, 1 });
+        }
+
+        private static void CallTreeOperations()
         {
             TreeNode node = new TreeNode { Data = 1 };
             node.LeftNode = new TreeNode { Data = 2 };
@@ -44,6 +102,9 @@ namespace LeetCode
 
             TreePrograms treePrograms = new TreePrograms();
             var mirrorTree = treePrograms.MirrorTree(node);
+
+            Console.WriteLine(treePrograms.Height(node));
+            Console.WriteLine(treePrograms.diameter(node, 0));
         }
         private static void CallBitAlgos()
         {
@@ -243,12 +304,19 @@ namespace LeetCode
 
         private static void CallReverserString()
         {
+            ReverseStringSolution solution = new ReverseStringSolution();
+
             // https://leetcode.com/problems/reverse-string/
             string testString = "Hello";
             Console.WriteLine(ReverseStringSolution.ReverseString(testString));
 
             testString = "A man, a plan, a canal: Panama";
             Console.WriteLine(ReverseStringSolution.ReverseString(testString));
+
+            StringAlgos algos = new StringAlgos();
+
+            Console.WriteLine($"ReverseOnlyLetters:{algos.ReverseOnlyLetters("AaW;c?[")}");
+
         }
         private static void CallSingleNonDuplicate()
         {
