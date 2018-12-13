@@ -12,7 +12,7 @@ namespace LeetCode
             // CallIsLucky();
             // CallIsPrime();
             // CallCountPrime();
-            CallReverserString();
+            // CallReverserString();
             // CallSingleNonDuplicate();
             // CallPrintStack();
             // CallStackUsingQueue();
@@ -23,14 +23,125 @@ namespace LeetCode
             // CallStringFunctions();
             //CallArrayAlgos();
             //CallArrayAlgos2();
-            // CallTreeOperations();
+            CallTreeOperations();
             // CallBitAlgos();
 
-            CallDPAlgos();
+            // CallDPAlgos();
+
+            //CallLinkedListAlgos();
+
+            // CallDynamicPrograms();
+            // CallMathAlgos();
+            // CallKthSamllestInBinTree();
+            // CallBinSrchAlgos();
+            // CallTwoPointerAlgos();
+            // CallDeletecolumnsToMakeSorted();
 
             Console.ReadLine();
         }
 
+        private static void CallDeletecolumnsToMakeSorted()
+        {
+            DeleteColumnstoMakeSorted sorted = new DeleteColumnstoMakeSorted();
+            // string[] arr = new string[] { "zyx", "wvu", "tsr" };
+            string[] arr = new string[] { "cba", "daf", "ghi" };
+
+            sorted.MinDeletionSize(arr);
+        }
+
+        private static void CallDynamicPrograms()
+        {
+            int count = 30;
+            DynamicProgAlgos dynamicProg = new DynamicProgAlgos();
+            Console.WriteLine($"No of ways to climb steps {count} are: {dynamicProg.ClimbStairs(count)}");
+            Console.WriteLine($"No of ways to climb steps 1,100, 1, 1, 1, 100, 1, 1, 100, 1 are: {dynamicProg.MinCostClimbingStairs(new int[] { 1, 100, 1, 1, 1, 100, 1, 1, 100, 1 })}");
+            Console.WriteLine($"Max profit on robbing 6, 7, 1, 3, 8, 2, 4 are: {dynamicProg.Rob(new int[] { 6, 7, 1, 3, 8, 2, 4 })}");
+
+        }
+
+        private static void CallMathAlgos()
+        {
+            MathAlgos mathAlgos = new MathAlgos();
+            Console.WriteLine(mathAlgos.ArrangeCoins(1));
+
+        }
+        private static void CallTwoPointerAlgos()
+        {
+            TwoPointerAlgos twoPointerAlgos = new TwoPointerAlgos();
+            //string named = "pyplrz";
+            //string typed = "ppyypllr";
+
+            string named = "xywrrmp";
+            string typed = "xywrrm#p";
+
+            // Console.WriteLine($"Two pointer: {named} vs {typed}" + twoPointerAlgos.IsLongPressedName(named, typed));
+
+            // Console.WriteLine($"Backspace: {named} vs {typed}" + twoPointerAlgos.BackspaceCompare(named, typed));
+            // Console.WriteLine($"Backspace using Stack: {named} vs {typed}" + twoPointerAlgos.BackspaceCompareUsingStk(named, typed));
+            // Console.WriteLine($"Find duplicate" + twoPointerAlgos.FindDuplicate(new int[] { 1, 3, 2, 4, 2 }));
+            Console.WriteLine($"Find duplicate" + twoPointerAlgos.FindDuplicateUsingArrayIndices(new int[] { 1, 3, 4, 2, 2 }));
+
+        }
+        private static void CallBinSrchAlgos()
+        {
+            BinsrchAlgos binsrchAlgos = new BinsrchAlgos();
+            //var arr = new int[] { 0, 2,1, 0 };
+            // var arr = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 5, 4, 3, 1, 0 };
+            var arr = new int[] { 0, 2, 7, 9, 11, 12, 89, 78, 67, 54, 33, 22, 11, 9, 1, 0 };
+
+            Console.WriteLine(binsrchAlgos.PeakIndexInMountainArray(arr));
+        }
+        private static void CallKthSamllestInBinTree()
+        {
+            TreeNode node = new TreeNode { Data = 5 };
+            node.LeftNode = new TreeNode { Data = 3 };
+            node.RightNode = new TreeNode { Data = 6 };
+            node.LeftNode.LeftNode = new TreeNode { Data = 2 };
+            //node.LeftNode.RightNode = new TreeNode { Data = 3 };
+            //node.RightNode.LeftNode = new TreeNode { Data = 6 };
+            //node.RightNode.RightNode = new TreeNode { Data = 7 };
+            node.LeftNode.LeftNode.LeftNode = new TreeNode { Data = 1 };
+            //node.LeftNode.LeftNode.RightNode = new TreeNode { Data = 9 };
+            //node.LeftNode.RightNode.LeftNode = new TreeNode { Data = 10 };
+            //node.LeftNode.RightNode.RightNode = new TreeNode { Data = 11 };
+
+            var algos = new KthSmallestInBinTree();
+            // algos.KthSmallest(node,4);
+            var res = algos.KthSmallest2(node, 3);
+        }
+        private static void CallLinkedListAlgos()
+        {
+            LinkedListAlgos algos = new LinkedListAlgos();
+            ListNode node10 = new ListNode(10);
+            ListNode node9 = new ListNode(9);
+            ListNode node8 = new ListNode(8);
+            ListNode node7 = new ListNode(7);
+            ListNode node6 = new ListNode(6);
+            ListNode node5 = new ListNode(5);
+            ListNode node3 = new ListNode(3);
+            ListNode node1 = new ListNode(1);
+
+            ListNode node4 = new ListNode(4);
+            ListNode node2 = new ListNode(2);
+
+            node2.next = node4;
+            node4.next = node6;
+
+            node1.next = node3;
+            node3.next = node5;
+            node5.next = node6;
+            node6.next = node7;
+            node7.next = node8;
+            node8.next = node9;
+            node9.next = node10;
+
+            // algos.MiddleNodeAp2(node1);
+            //algos.RemoveNthFromEnd(node1, 2);
+            //var isP = algos.IsPalindrome(node1);
+            //algos.ReverseListRecursive(null, node1);
+
+            algos.GetIntersectionNode(node1, node2);
+        }
         private static void CallDPAlgos()
         {
             DPAlgos algos = new DPAlgos();
@@ -54,7 +165,7 @@ namespace LeetCode
             Console.WriteLine(algos.NextGreaterElement(1234));
             Console.WriteLine(algos.NextGreaterElement(12));
 
-            Console.WriteLine($"Third Max for {algos.ThirdMaxNumber(new int[] { 1, 2})}");
+            Console.WriteLine($"Third Max for {algos.ThirdMaxNumber(new int[] { 1, 2 })}");
 
         }
         private static void CallArrayAlgos()
@@ -88,8 +199,10 @@ namespace LeetCode
 
         private static void CallTreeOperations()
         {
+
             TreeNode node = new TreeNode { Data = 1 };
             node.LeftNode = new TreeNode { Data = 2 };
+
             node.RightNode = new TreeNode { Data = 3 };
             node.LeftNode.LeftNode = new TreeNode { Data = 4 };
             node.LeftNode.RightNode = new TreeNode { Data = 5 };
@@ -100,7 +213,29 @@ namespace LeetCode
             node.LeftNode.RightNode.LeftNode = new TreeNode { Data = 10 };
             node.LeftNode.RightNode.RightNode = new TreeNode { Data = 11 };
 
+            node.LeftNode.RightNode.RightNode.RightNode = new TreeNode { Data = 12 };
+            node.LeftNode.RightNode.RightNode.RightNode.RightNode = new TreeNode { Data = 13 };
+
+
+
+            TreePrograms tp = new TreePrograms();
+
+            var st = "1,2,3,#,#,4,5,#,#,6,7";
+
+            var n = tp.deserialize(st);
+            var str = tp.serialize(n);
+
+            var str2 = tp.serialize(n);
+
+            Console.WriteLine($"Strings were: {str == str2}");
+
+            TreeTraversal trv = new TreeTraversal();
+            var t = trv.BuildTree(new int[] { 8, 4, 2, 5, 1, 6, 3, 7 }, new int[] { 8, 4, 5, 2, 6, 7, 3, 1 });
+
+            trv.HasPathSum(node, 1);
+
             TreePrograms treePrograms = new TreePrograms();
+
             var mirrorTree = treePrograms.MirrorTree(node);
 
             Console.WriteLine(treePrograms.Height(node));
